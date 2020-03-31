@@ -6,6 +6,8 @@ yum update -y && \
     git\
     policycoreutils\
     setools\
+    htop\
+    ntop\
     nodejs\
 
 npm install pm2
