@@ -2,8 +2,10 @@
 
 yum update -y && \
     yum install -y\
-    git\
     open-vm-tools\
+    git\
     policycoreutils\
     setools\
-    nodejs
+    nodejs\
+
+npm install pm2
