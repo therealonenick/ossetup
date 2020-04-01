@@ -15,6 +15,13 @@ yum update -y && \
     setools\
     nodejs\
 
+#Install Python3
+yum install -y\
+    python3
+
+alternatives --set python /usr/bin/python3
+pip3 install --upgrade pip
+
 #Install PM2
 echo "Installing PM2."
 npm install pm2
