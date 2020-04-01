@@ -44,6 +44,5 @@ fi
 #Update and install some additional items
 yum update -y && \
     yum install -y\
-    htop\
-    ntop\
+    htop
 
