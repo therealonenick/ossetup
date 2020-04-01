@@ -3,6 +3,7 @@
 yum update -y && \
     yum install -y\
     open-vm-tools\
+    net-tools\
     git\
     policycoreutils\
     setools\
