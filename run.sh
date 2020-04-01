@@ -2,6 +2,8 @@
 
 echo "Getting Version..."
 RHVER=$(rpm -E %{rhel})
+PROCVER=$(cat /proc/version)
+
 
 #Update and install some basic items
 echo "Installing Updates and base packages."
@@ -34,7 +36,11 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 echo "Installing ELRepo.."
 #ELRepo recommends using yum-plugin-fastestmirror but its not availble with Centos8 as of this writing.
 #adding it only to v7 and 6.
-if [ $RHVER="8" ]
+#Check for Amazon version
+if [[ $PROCVER =~ ^(.*)amzn[2-9](.*)$ ]]
+then
+    amazon-linux-extras install epel
+elif [ $RHVER="8" ]
 then
     yum install -y https://www.elrepo.org/elrepo-release-8.1-1.el8.elrepo.noarch.rpm
 elif [ $RHVER="7" ]
